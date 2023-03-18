@@ -3,7 +3,7 @@ using UnityEngine;
 public class SlidingState : BaseState
 {
     [SerializeField]
-    private float slideDuration = 2.0f;
+    private float slideDuration = 1.0f;
 
     private Vector3 initialColliderCenter;
     private float initialColliderSize;

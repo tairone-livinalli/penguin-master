@@ -17,6 +17,7 @@ public class PlayerMotor : MonoBehaviour
     public Animator animator;
 
     private BaseState currentState;
+    private bool isPaused;
 
     void Start()
     {
@@ -24,10 +25,17 @@ public class PlayerMotor : MonoBehaviour
         animator = GetComponent<Animator>();
         currentState = GetComponent<RunningState>();
         currentState.Construct();
+
+        isPaused = true;
     }
 
     void Update()
     {
+        if (isPaused)
+        {
+            return;
+        }
+
         UpdateMotor();        
     }
 
@@ -89,6 +97,31 @@ public class PlayerMotor : MonoBehaviour
         if (verticalSpeed < -terminalSpeed)
         {
             verticalSpeed = -terminalSpeed;
+        }
+    }
+
+    public void PausePlayer()
+    {
+        isPaused = true;
+    }
+
+    public void ResumePlayer()
+    {
+        isPaused = false;
+    }
+
+    public void RespawnPlayer()
+    {
+        ChangeState(GetComponent<RespawnState>());
+    }  
+
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        string hitLayerName = LayerMask.LayerToName(hit.gameObject.layer);
+
+        if (hitLayerName == "Death")
+        {
+            ChangeState(GetComponent<DeathState>());
         }
     }
 }
