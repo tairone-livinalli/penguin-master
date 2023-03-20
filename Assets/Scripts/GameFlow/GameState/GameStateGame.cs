@@ -4,5 +4,6 @@ public class GameStateGame : GameState
     {
         base.Construct();
         GameManager.Instance.playerMotor.ResumePlayer();
+        GameManager.Instance.ChangeCamera(GameCamera.Game);
     }
 }

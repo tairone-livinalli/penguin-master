@@ -47,4 +47,9 @@ public class RespawnState : BaseState
         }
     }
 
+    public override void Destruct()
+    {
+        GameManager.Instance.ChangeCamera(GameCamera.Game);
+    }
+
 }

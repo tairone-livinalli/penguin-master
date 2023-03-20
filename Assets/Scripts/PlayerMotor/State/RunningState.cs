@@ -10,6 +10,8 @@ public class RunningState : BaseState
 
     public override Vector3 ProcessMotion()
     {
+        //GameManager.Instance.ChangeCamera(GameCamera.Game);
+
         Vector3 movement = Vector3.zero;
 
         movement.x = playerMotor.SnapToLane();

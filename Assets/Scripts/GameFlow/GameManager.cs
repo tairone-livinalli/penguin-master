@@ -1,11 +1,20 @@
 using UnityEngine;
 
+public enum GameCamera
+{
+    Init = 0,
+    Game = 1,
+    Shop = 2,
+    Respawn = 3,
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get { return instance; } }
     private static GameManager instance;
 
     public PlayerMotor playerMotor;
+    public GameObject[] cameras;
 
     private GameState currentState;
 
@@ -36,12 +45,22 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        playerMotor.RespawnPlayer();
         ChangeState(GetComponent<GameStateGame>());
+        playerMotor.RespawnPlayer();
     }
 
     public void RestartGame()
     {
         ChangeState(GetComponent<GameStateInit>());
+    }
+
+    public void ChangeCamera(GameCamera camera)
+    {
+        foreach(GameObject _camera in cameras)
+        {
+            _camera.SetActive(false);
+        }
+
+        cameras[(int)camera].SetActive(true);
     }
 }
