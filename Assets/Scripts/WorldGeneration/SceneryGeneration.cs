@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldGeneration : MonoBehaviour
+public class SceneryGeneration : MonoBehaviour
 {
     // Gameplay
     private float chunkSpawnZ;

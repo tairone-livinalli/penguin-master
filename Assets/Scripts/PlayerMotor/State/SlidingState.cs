@@ -3,7 +3,7 @@ using UnityEngine;
 public class SlidingState : BaseState
 {
     [SerializeField]
-    private float slideDuration = 1.0f;
+    private float slideDuration = 2.0f;
 
     private Vector3 initialColliderCenter;
     private float initialColliderSize;
@@ -18,8 +18,8 @@ public class SlidingState : BaseState
         initialColliderSize = playerMotor.characterController.height;
         initialColliderCenter = playerMotor.characterController.center;
 
-        playerMotor.characterController.height = initialColliderSize * 0.5f;
-        playerMotor.characterController.center = initialColliderCenter * 0.5f;
+        playerMotor.characterController.height = initialColliderSize * 0.25f;
+        playerMotor.characterController.center = initialColliderCenter * 0.25f;
     }
 
     public override Vector3 ProcessMotion()

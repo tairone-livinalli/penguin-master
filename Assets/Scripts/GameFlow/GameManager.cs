@@ -13,10 +13,16 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
     private static GameManager instance;
 
+    [SerializeField]
+    private WorldGeneration world;
+    [SerializeField]
+    private SceneryGeneration scenery;
     public PlayerMotor playerMotor;
     public GameObject[] cameras;
 
     private GameState currentState;
+
+    public GameState GetCurrentState => currentState;
 
     private void Awake()
     {
@@ -52,6 +58,9 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         ChangeState(GetComponent<GameStateInit>());
+        playerMotor.ResetPlayer();
+        world.ResetWorld();
+        scenery.ResetWorld();
     }
 
     public void ChangeCamera(GameCamera camera)

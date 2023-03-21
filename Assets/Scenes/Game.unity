@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9ecaf7a819d4bccbd90d70cef0fea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slideDuration: 1
+  slideDuration: 2
 --- !u!114 &50611108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc3515b619e24a5a9e8761b2b0ab534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  world: {fileID: 749268378}
+  scenery: {fileID: 749268380}
   playerMotor: {fileID: 50611102}
   cameras:
   - {fileID: 1204637436}
@@ -1451,7 +1453,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 749268377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1963b97224284c49b9c9929198cee2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 92f34431192ac4880838c7714f43faf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firstChunkPosition: 5
@@ -1841,7 +1843,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
+    m_Style: 0
     m_Time: 0.5
     m_CustomCurve:
       serializedVersion: 2
