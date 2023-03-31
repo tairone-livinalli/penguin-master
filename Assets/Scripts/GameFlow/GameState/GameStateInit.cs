@@ -2,16 +2,26 @@ using UnityEngine;
 
 public class GameStateInit : GameState
 {
-    public override void Construct()
-    {
-        GameManager.Instance.ChangeCamera(GameCamera.Init);
-    }
+  [SerializeField] private GameObject menu;
 
-    public override void UpdateState()
-    {
-        if (InputManager.Instance.Tap)
-        {
-            gameManager.ChangeState(GetComponent<GameStateGame>());
-        }
-    }
+  public override void Construct()
+  {
+    GameManager.Instance.ChangeCamera(GameCamera.Init);
+    menu.SetActive(true);
+  }
+
+  public void OnClickPlay()
+  {
+    gameManager.ChangeState(GetComponent<GameStateGame>());
+  }
+
+  public void OnClickShop()
+  {
+    Debug.Log("OnClickShop");
+  }
+
+  public override void Destruct()
+  {
+    menu.SetActive(false);
+  }
 }
