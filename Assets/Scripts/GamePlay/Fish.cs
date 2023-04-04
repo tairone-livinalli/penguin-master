@@ -20,6 +20,7 @@ public class Fish : MonoBehaviour
   private void PickupFish()
   {
     animator?.SetTrigger("Pickup");
+    GameStats.Instance.CollectFish();
   }
 
   public void OnShowChunk()

@@ -13,6 +13,7 @@ public class GameStateInit : GameState
   public void OnClickPlay()
   {
     gameManager.ChangeState(GetComponent<GameStateGame>());
+    GameStats.Instance.ResetCounters();
   }
 
   public void OnClickShop()
