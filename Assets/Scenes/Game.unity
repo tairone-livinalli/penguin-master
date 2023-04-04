@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 189448868}
   - component: {fileID: 189448869}
   - component: {fileID: 189448870}
+  - component: {fileID: 189448872}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -633,6 +634,18 @@ MonoBehaviour:
   scoreMultiplier: 1.25
   currentFishes: 0
   pointsPerFish: 40
+--- !u!114 &189448872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189448865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0bcbbbeb4f44bf191907d55a3131e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0

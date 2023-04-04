@@ -19,10 +19,11 @@ public class GameStateDeath : GameState
   {
     base.Construct();
     deathTime = Time.time;
+    SaveManager.Instance.Save();
 
-    currentScore.text = "000250";
-    highScore.text = "HighScore: 001232";
-    currentFishCount.text = "0000243";
+    currentScore.text = GameStats.Instance.ScoreToText();
+    highScore.text = "HighScore: " + SaveManager.Instance.HighScoreToText();
+    currentFishCount.text = SaveManager.Instance.FishAmountToText();
     timerCircle.gameObject.SetActive(true);
     deathUI.SetActive(true);
   }

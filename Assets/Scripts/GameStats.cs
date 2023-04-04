@@ -38,9 +38,13 @@ public class GameStats : MonoBehaviour
   private float highScore;
   [SerializeField] private float scoreMultiplier = 1.25f;
 
+  public float CurrentScore() => currentScore;
+
   private int totalFishes;
   [ReadOnly, SerializeField] private int currentFishes;
   [SerializeField] private int pointsPerFish = 40;
+
+  public int CurrentFishAmount() => currentFishes;
 
   public Action<string> OnFishAmountChange;
   public Action<string> OnScoreChange;
