@@ -2,30 +2,6 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class ReadOnlyAttribute : PropertyAttribute
-{
-
-}
-
-[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-public class ReadOnlyDrawer : PropertyDrawer
-{
-  public override float GetPropertyHeight(SerializedProperty property,
-                                          GUIContent label)
-  {
-    return EditorGUI.GetPropertyHeight(property, label, true);
-  }
-
-  public override void OnGUI(Rect position,
-                             SerializedProperty property,
-                             GUIContent label)
-  {
-    GUI.enabled = false;
-    EditorGUI.PropertyField(position, property, label, true);
-    GUI.enabled = true;
-  }
-}
-
 public class GameStats : MonoBehaviour
 {
   public static GameStats Instance { get { return instance; } }
@@ -34,14 +10,14 @@ public class GameStats : MonoBehaviour
   private float lastScoreUpdateTime;
   private float scoreUpdateIntervalTime = 0.3f;
 
-  [ReadOnly, SerializeField] private float currentScore;
+  private float currentScore;
   private float highScore;
   [SerializeField] private float scoreMultiplier = 1.25f;
 
   public float CurrentScore() => currentScore;
 
   private int totalFishes;
-  [ReadOnly, SerializeField] private int currentFishes;
+  private int currentFishes;
   [SerializeField] private int pointsPerFish = 40;
 
   public int CurrentFishAmount() => currentFishes;
