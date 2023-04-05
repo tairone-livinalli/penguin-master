@@ -28,7 +28,7 @@ public class SaveManager : MonoBehaviour
   {
     try
     {
-      FileStream file = new FileStream(Application.persistentDataPath + saveFileName, FileMode.Open, FileAccess.Read);
+      FileStream file = new FileStream(Application.persistentDataPath + "/" + saveFileName, FileMode.Open, FileAccess.Read);
       save = formatter.Deserialize(file) as SaveState;
       file.Close();
       OnLoadState?.Invoke(save);
@@ -54,7 +54,7 @@ public class SaveManager : MonoBehaviour
     save.Fish += GameStats.Instance.CurrentFishAmount();
 
     save.LastSaveTime = DateTime.Now;
-    FileStream file = new FileStream(Application.persistentDataPath + saveFileName, FileMode.OpenOrCreate, FileAccess.Write);
+    FileStream file = new FileStream(Application.persistentDataPath + "/" + saveFileName, FileMode.OpenOrCreate, FileAccess.Write);
     formatter.Serialize(file, save);
     file.Close();
 
