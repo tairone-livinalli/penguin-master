@@ -18,7 +18,7 @@ public class GameStateInit : GameState
 
   public void OnClickShop()
   {
-    Debug.Log("OnClickShop");
+    gameManager.ChangeState(GetComponent<GameStateShop>());
   }
 
   public override void Destruct()
